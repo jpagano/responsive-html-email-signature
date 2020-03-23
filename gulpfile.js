@@ -24,6 +24,7 @@ require('./tasks/postcss')(options);
 require('./tasks/sass')(options);
 require('./tasks/check-for-unused').checkForUnusedTask(options);
 require('./tasks/check-deps')(options);
+require('./tasks/server')(options);
 
 /* Runs the entire pipeline once. */
 gulp.task(
@@ -34,18 +35,5 @@ gulp.task(
 /* By default templates will be built into '/dist'. */
 gulp.task(
   'default',
-  gulp.series('run-pipeline', () => {
-    /* gulp will watch for changes in '/templates'. */
-    gulp.watch(
-      [
-        options.sourceDir + '/**/*.html',
-        options.sourceDir + '/**/*.css',
-        options.sourceDir + '/**/*.scss',
-        options.sourceDir + '/**/*.less',
-        options.sourceDir + '/**/conf.json'
-      ],
-      { delay: 500 },
-      gulp.series('run-pipeline')
-    );
-  })
+  gulp.series('run-pipeline', 'server')
 );

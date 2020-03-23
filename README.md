@@ -47,6 +47,7 @@ Writing HTML emails & email signatures sucks. Let's make it easier. We can't fix
 - [x] watches HTML / CSS files for changes and re-builds
 - [x] supports LESS / SASS / PostCSS
 - [x] autoprefixer, so you don't have to worry about your `-moz-`s or `-webkit-`s
+- [x] live reloading with the built-in BrowserSync server
 - [x] linting, checks for used template config parameters and more!
 
 \*_Some mail clients might have [hard limits](https://support.google.com/a/answer/176652?hl=en) regarding the email size, so don't include large images if possible. If you need to, use a URL instead and host the image somewhere else._
